@@ -1,0 +1,460 @@
+//////////////////////////
+//        FONTS         //
+//////////////////////////
+@Lato: 'Lato', 'Helvetica', sans-serif;
+@Open: 'Open Sans', 'Helvetica', sans-serif; 
+
+
+//////////////////////////
+//       COLOURS        //
+//////////////////////////
+@dark-blue: #1B325E;
+@light-blue: #9CC4E4;
+@orange: #F26C4F;
+
+//////////////////////////////
+//       MAIN STYLEs        //
+//////////////////////////////
+*, *:before, *:after {
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+html {
+	height: 100%;
+}
+body {
+	font-family: @Open;
+	color: #555;
+	height: 100%;
+	background: lighten(@light-blue, 21%);
+}
+.body-container {
+	height: auto;
+	min-height: 100%;
+	padding-bottom: 200px;
+	margin-bottom: -200px;
+}
+p, li {
+	font-family: @Open;
+}
+a {
+	 text-decoration: none;
+	 color: #555;
+	 &:hover {
+	 	color: @dark-blue;
+	 }
+}
+.center {
+	display: inline-block;
+	margin: 0 auto;
+}
+.container {
+	width: 90%;
+	margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+	.container {
+		min-width: 750px;
+		width: 80%;
+		max-width: 1140px;
+	}
+}
+
+
+//////////////////////////
+//        HEADER        //
+//////////////////////////
+header {
+	z-index: 100000;
+	width: 100%;
+	height: 80px;
+	background: #fff;
+	-webkit-box-shadow: 0px 1px 2px 2px rgba(0,0,0,0.2);
+	box-shadow: 0px 1px 2px 2px rgba(0,0,0,0.2);
+	h1 {
+		display: inline-block;
+		font-family: @Lato;
+		font-size: 4em;
+		font-weight: 900;
+		color: @dark-blue;
+		margin: 0;
+		.blue {
+			color: @dark-blue;
+		}
+	}
+	nav {
+		display: inline-block;
+		height: 80px;
+		float: right;
+		clear: left;
+		ul {
+			margin: 0;
+		}
+		ul li{
+			font-family: @Open;
+			display: inline-block;
+			height: 80px;
+			color: #666;
+			font-size: 0.9em;
+			text-transform: uppercase;
+			padding: 32px 15px;
+			margin: 0 5px;
+			transition: background .2s ease-in;
+			-webkit-transition: background .2s ease-in;
+			&:hover {
+				background: lighten(@light-blue, 18%);
+			}
+		}
+		ul li.active {
+			border-top: 4px solid @dark-blue;
+			padding-top: 28px;
+		}
+	}
+	#menu-button {
+		display: inline-block;
+		float: right;
+		//background: @light-blue;
+		height: 50px;
+		width: 50px;
+		margin-top: 15px;
+		border: 0;
+		cursor: pointer;
+
+		div {
+			background: @light-blue;
+			width: 100%;
+			height: 10px;
+			margin: 5px 0;
+			border-radius: 3px;
+			transition: background 0.2s ease-in;
+			-webkit-transition: background 0.2s ease-in;
+		}
+		&:hover div {
+			background: @dark-blue;
+		}
+	}
+}
+@media screen and (max-width: 767px) {
+	#desktop-menu {
+		display: none;
+	}
+}
+@media screen and (min-width: 768px) {
+	header #menu-button, header #menu-button div {
+		display: none;
+	}
+}
+@media screen and (max-width: 830px) {
+	header nav ul li {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+//////////////////////////
+//     MOBILE MENU      //
+//////////////////////////
+#handheld-menu {
+	ul {
+		margin: 0;
+		padding: 0;
+		background: @light-blue;
+	}
+	li {
+		padding: 15px 30px;
+		list-style: none;
+		text-transform: uppercase;
+		font-size: 0.9em;
+		border-bottom: 1px solid darken(@light-blue, 3%);
+		&:hover{
+			background: darken(@light-blue, 10%);
+		}
+	}
+}
+@media screen and (min-width: 768px) {
+	#handheld-menu {
+		display: none;
+	}
+}
+
+//////////////////////
+//     CAROUSEL     //
+//////////////////////
+#banner {
+	position: relative; overflow: auto;
+	h1 {
+		position: absolute;
+		bottom: 40px;
+		background: #fff;;
+		padding: 20px 30px;
+		font-size: 1.5em;
+		color: desaturate(@dark-blue, 10%);
+		max-width: 100%;
+	}
+	.dots {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 20px;
+		text-align: center;
+		margin: 0;
+	}
+	.dots li {
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin: 0 4px;
+		text-indent: -9999px;
+		border: 2px solid #fff;
+		border-radius: 6px;
+		cursor: pointer;
+		box-shadow: 0 0 1px 1px rgba(150,150,150,0.5);
+	}
+	.dots li.active {
+		background: #fff;
+	}
+}
+#banner li {
+	list-style: none; 
+}
+#banner ul li {
+	float: left;
+	min-height: 500px;
+	-webkit-box-shadow: inset 0px 1px 2px 2px rgba(0,0,0,0.3);
+	box-shadow: inset 0px 1px 2px 2px rgba(0,0,0,0.3);
+}
+#banner ul { 
+	padding: 0;
+	margin: 0;
+	li:nth-child(1) {
+		background: url(../img/cows_.jpg);
+		background-size: cover;
+		background-position: bottom;
+	}
+	li:nth-child(2) {		
+		background: url(../img/warehouse_.jpg);
+		background-size: cover;
+		background-position: center;
+	}
+	li:nth-child(3) {
+		background: url(../img/forklift_.jpg);
+		background-size: cover;
+		background-position: center;
+	}
+	li:nth-child(4) {
+		background: url(../img/pills_.jpg);
+		background-size: cover;
+		background-position: center;
+	}
+}
+
+///////////////////////////
+//     INDEX - INTRO     //
+///////////////////////////
+section {
+	padding: 40px 0 80px;
+}
+#intro {
+	overflow: hidden;
+	padding: 50px 0;
+	h1 {
+		margin-top: 0;
+		margin-bottom: 1.5em;
+	}
+	ul {
+		list-style-type: square;
+		list-style-image: url(../img/leaf.png);
+	}
+	a {
+		text-decoration: underline;
+	}
+}
+//////////////////////
+//       GRID       //
+//////////////////////
+.col-left {
+	display: inline-block;
+	background: lighten(@light-blue, 14%);
+	border-radius: 3px;
+	font-size: 0.9em;
+	padding: 0 15px;
+
+}
+.col-right {
+	display: inline-block;
+}
+@media screen and (min-width: 768px) {
+	.col-left {
+		display: block;
+		width: 40%;
+		
+		margin-right: -3px;
+		vertical-align: top;
+		float: left;
+		max-width: 290px;
+		min-width: 200px;
+	}
+	.col-right {
+		display: block;
+		width: 60%;
+		padding: 0 15px;
+		margin-right: -3px;
+		vertical-align: top;
+		float: right;
+		p {
+			margin-top: 0;
+		}
+	}
+}
+@media screen and (min-width: 1140px) {
+	.col-left {
+		width: 30%;
+	}
+	.col-right {
+		width: 70%;
+	}
+}	
+
+////////////////////////
+//     ABOUT PAGE     //
+////////////////////////
+#about {
+	h1 {
+		font-family: @Lato;
+		font-size: 2.4em;
+	}
+	ul {
+		list-style-image: url(../img/leaf.png);
+	}
+}
+
+///////////////////////////
+//     PRODUCTS PAGE     //
+///////////////////////////
+#products {
+	h1 {
+		font-family: @Lato;
+		font-size: 2.4em;
+	}
+	.btn-group {
+		margin: 0 0 40px 0;
+		//background: lighten(@light-blue, 19%);;
+		width: 100%;
+		button {
+			font-family: @Lato;
+			color: @dark-blue;
+			text-align: center;
+			background: @light-blue;
+			width: 30px;
+			padding: 5px;
+			margin-bottom: 5px;
+			border: 0;
+			border-radius: 2px;
+			&:hover {
+				background: darken(@light-blue, 6%);
+			}
+		}
+	}
+	.btn-group.fixed {
+		position: fixed;
+		top:0;
+		padding: 10px 0;
+	}
+	table {
+		width: 100%;
+		font-family: @Open;
+		th {
+			text-align: left;
+			font-size: 1.2em;
+			padding: 30px 0 5px 0;
+			border-bottom: 1px solid @light-blue;
+		}
+		td {
+			font-size: 0.8em;
+			vertical-align: top;
+			padding-top: 8px;
+		}
+	}
+}
+.go-top {
+	span {
+		position: fixed;
+		bottom: 40px;
+		right: 40px;
+		width: 48px;
+		height: 48px;
+		border-radius: 30px;
+		background: rgba(100,100,100,0.4);
+		font-size: 3em;
+		font-weight: 900;
+		text-align: center;
+		padding-top: 8px;
+		img {
+			height:32px;
+			width: 32px;
+			vertical-align: top;
+		}
+	}
+	&:hover {
+		color: #555;
+		span{
+			background: rgba(100,100,100,0.5)
+		}
+	}
+}
+
+///////////////////////////
+//     CONTACT PAGE     //
+///////////////////////////
+#contact {
+	h1 {
+		font-family: @Lato;
+		font-size: 2.4em;
+	}
+	table {
+		font-family: @Open;
+		td {
+			padding: 5px 20px;
+			border-bottom: 1px solid @light-blue;
+			h2 {
+				font-family: @Lato;
+				margin: 0;
+			}
+		}
+	}
+}
+
+
+
+
+
+footer {
+	background: @light-blue;
+	height: 200px;
+	padding: 45px 0;
+	font-size: 0.9em;
+	h2 {
+		margin-top: 0;
+		font-family: @Lato;
+	}
+	a {
+		font-family: @Open;
+		&:hover {
+			color: desaturate(@orange, 10%);
+		}
+	}
+}
+.pull-left {
+	float: left;
+}
+.pull-right {
+	float: right;
+	text-align: right;
+	padding-top: 30px;
+}
+@media screen and (max-width: 480px) {
+	.pull-right {
+		width: 150px;
+		padding-top: 10px;
+	}
+}
